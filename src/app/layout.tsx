@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { QueryProvider } from "@/components/query-provider";
@@ -7,23 +6,13 @@ import { ZyloProvider } from "@/lib/zylo/provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-
-// Elegant serif font for headings
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-// Clean sans-serif for body text
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
+import { CartProvider } from "@/lib/cart-context";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 
 export const metadata: Metadata = {
-  title: "Sterling Oaks Golf Club | Championship Golf Experience",
-  description: "Experience championship golf on three award-winning courses designed by Robert Trent Jones II. Premium memberships, events, and world-class amenities.",
+  title: "CelebrationHub | Cakes, Gifts & Party Supplies for Every Occasion",
+  description: "Order custom cakes, personalized gifts, and party supplies for birthdays, weddings, anniversaries, and all celebrations. Fast delivery across India.",
 };
 
 export default function RootLayout({
@@ -33,12 +22,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-
-      </head>
-      <body
-        className={`${inter.variable} ${playfair.variable} antialiased font-sans`}
-      >
+      <head />
+      <body className="antialiased font-body">
         <QueryProvider>
           <ZyloProvider>
             <ThemeProvider
@@ -47,11 +32,17 @@ export default function RootLayout({
               enableSystem
               disableTransitionOnChange
             >
-              <TooltipProvider>
-                {children}
-                <Toaster />
-                <Sonner />
-              </TooltipProvider>
+              <CartProvider>
+                <TooltipProvider>
+                  <div className="flex flex-col min-h-screen">
+                    <Header />
+                    <main className="flex-1">{children}</main>
+                    <Footer />
+                  </div>
+                  <Toaster />
+                  <Sonner />
+                </TooltipProvider>
+              </CartProvider>
             </ThemeProvider>
           </ZyloProvider>
         </QueryProvider>

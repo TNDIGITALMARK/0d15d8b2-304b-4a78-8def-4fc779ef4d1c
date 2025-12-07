@@ -1,60 +1,74 @@
 @import "tailwindcss";
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ============================================
+   GIFTING MARKETPLACE DESIGN SYSTEM
+   A warm, celebratory aesthetic for cakes & gifts
+   ============================================ */
+
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Premium golf club color palette */
-  /* Off-white background with charcoal text */
-  --background: 40 20% 97%;
-  --foreground: 0 0% 15%;
+  /* ========== CELEBRATORY COLOR PALETTE ========== */
+  /* Warm, inviting colors that evoke joy and celebration */
 
-  /* Clean white cards with charcoal text */
+  /* Backgrounds: Clean white with soft warmth */
+  --background: 30 40% 98%;
+  --foreground: 340 15% 20%;
+
+  /* Cards: Pure white with subtle warmth */
   --card: 0 0% 100%;
-  --card-foreground: 0 0% 15%;
+  --card-foreground: 340 15% 20%;
 
-  /* Popovers with white background */
+  /* Popovers */
   --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 15%;
+  --popover-foreground: 340 15% 20%;
 
-  /* Primary: Deep forest green with white text */
-  --primary: 155 30% 25%;
+  /* Primary: Coral Pink (main brand color) */
+  --primary: 351 85% 65%;
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary: Gold/champagne accent */
-  --secondary: 45 65% 60%;
-  --secondary-foreground: 0 0% 15%;
+  /* Secondary: Warm Gold (celebration accent) */
+  --secondary: 43 90% 65%;
+  --secondary-foreground: 340 15% 20%;
 
-  /* Muted: Light green-gray with darker text */
-  --muted: 155 15% 92%;
-  --muted-foreground: 0 0% 40%;
+  /* Muted: Soft lavender-gray */
+  --muted: 270 20% 96%;
+  --muted-foreground: 340 8% 45%;
 
-  /* Accent: Gold for highlights */
-  --accent: 45 75% 55%;
-  --accent-foreground: 0 0% 15%;
+  /* Accent: Vibrant celebration gold */
+  --accent: 43 95% 60%;
+  --accent-foreground: 340 15% 20%;
 
-  /* Destructive: Elegant red */
-  --destructive: 0 65% 48%;
+  /* Destructive: Soft error red */
+  --destructive: 0 70% 58%;
   --destructive-foreground: 0 0% 100%;
 
-  /* Borders: Soft neutral */
-  --border: 0 0% 88%;
-  --input: 0 0% 88%;
-  --ring: 155 30% 25%;
+  /* Borders: Gentle neutral */
+  --border: 270 12% 90%;
+  --input: 270 12% 88%;
+  --ring: 351 85% 65%;
 
-  /* Slightly more rounded for elegance */
-  --radius: 0.5rem;
+  /* Success: Celebration green */
+  --success: 142 70% 45%;
+  --success-foreground: 0 0% 100%;
 
-  /* Sidebar: Clean white with black text */
+  /* Warning: Warm amber */
+  --warning: 38 92% 50%;
+  --warning-foreground: 0 0% 100%;
+
+  /* Rounded corners for friendly feel */
+  --radius: 0.75rem;
+
+  /* Sidebar */
   --sidebar-background: 0 0% 100%;
-  --sidebar-foreground: 0 0% 0%;
-  --sidebar-primary: 0 0% 0%;
+  --sidebar-foreground: 340 15% 20%;
+  --sidebar-primary: 351 85% 65%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 0 0% 96%;
-  --sidebar-accent-foreground: 0 0% 0%;
-  --sidebar-border: 0 0% 90%;
-  --sidebar-ring: 0 0% 0%;
+  --sidebar-accent: 270 20% 96%;
+  --sidebar-accent-foreground: 340 15% 20%;
+  --sidebar-border: 270 12% 90%;
+  --sidebar-ring: 351 85% 65%;
 }
 
 .dark {
@@ -178,43 +192,246 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Premium golf club typography */
-.font-sans {
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+/* ========== TYPOGRAPHY SYSTEM ========== */
+/* Friendly, modern fonts for celebration marketplace */
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
-.font-serif {
-  font-family: var(--font-playfair), ui-serif, Georgia, serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-playfair), ui-serif, Georgia, serif;
-  font-weight: 600;
-  letter-spacing: -0.025em;
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
   color: hsl(var(--foreground));
+  background-color: hsl(var(--background));
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* Clean button styles */
+/* Typography scale - clear hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: hsl(var(--foreground));
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.875rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+h6 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+/* Text elements */
+p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: hsl(351 85% 55%);
+  text-decoration: underline;
+}
+
+strong, b {
+  font-weight: 600;
+}
+
+em, i {
+  font-style: italic;
+}
+
+/* Utility font classes */
+.font-heading {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-body {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* ========== RESET & NORMALIZATION ========== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border-color: hsl(var(--border));
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
 button {
+  cursor: pointer;
+  background: none;
+  border: none;
   font-weight: 500;
 }
 
-/* Subtle shadows for depth */
+ul, ol {
+  list-style: none;
+}
+
+/* ========== COMPONENT DEFAULTS ========== */
+
+/* Button styling */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  box-shadow: 0 2px 8px -2px hsl(351 85% 65% / 0.3);
+}
+
+.btn-primary:hover {
+  background-color: hsl(351 85% 60%);
+  box-shadow: 0 4px 12px -2px hsl(351 85% 65% / 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+  box-shadow: 0 2px 8px -2px hsl(43 90% 65% / 0.3);
+}
+
+.btn-secondary:hover {
+  background-color: hsl(43 90% 60%);
+  box-shadow: 0 4px 12px -2px hsl(43 90% 65% / 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: hsl(var(--primary));
+  border: 2px solid hsl(var(--primary));
+}
+
+.btn-outline:hover {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+/* Form inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="search"],
+input[type="date"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--card));
+  border: 2px solid hsl(var(--border));
+  border-radius: calc(var(--radius) - 2px);
+  transition: all 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 3px hsl(351 85% 65% / 0.1);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: hsl(var(--muted-foreground));
+}
+
+/* Shadows for depth */
 .shadow-sm {
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px 0 rgb(0 0 0 / 0.03);
 }
 
 .shadow {
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  box-shadow: 0 2px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -1px rgb(0 0 0 / 0.05);
 }
 
 .shadow-md {
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.1), 0 2px 6px -2px rgb(0 0 0 / 0.06);
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+.shadow-lg {
+  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.12), 0 4px 10px -3px rgb(0 0 0 / 0.08);
+}
+
+.shadow-xl {
+  box-shadow: 0 20px 40px -8px rgb(0 0 0 / 0.15), 0 8px 16px -4px rgb(0 0 0 / 0.1);
 }
 
 /* Enhanced animations for premium feel */
@@ -282,11 +499,87 @@ img {
   transition: opacity 0.3s ease-in-out;
 }
 
-/* Premium gradient backgrounds */
-.gradient-gold {
-  background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--secondary)) 100%);
+/* ========== CELEBRATION GRADIENTS ========== */
+
+.gradient-celebration {
+  background: linear-gradient(135deg, hsl(351 85% 65%) 0%, hsl(43 90% 65%) 100%);
 }
 
-.gradient-green {
-  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(155 35% 30%) 100%);
+.gradient-warm {
+  background: linear-gradient(135deg, hsl(43 90% 65%) 0%, hsl(30 85% 70%) 100%);
+}
+
+.gradient-coral {
+  background: linear-gradient(135deg, hsl(351 85% 65%) 0%, hsl(351 85% 75%) 100%);
+}
+
+.gradient-soft {
+  background: linear-gradient(135deg, hsl(270 20% 96%) 0%, hsl(30 40% 98%) 100%);
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Mobile-first responsive typography */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Touch-friendly interactive elements on mobile */
+@media (max-width: 768px) {
+  button,
+  a.btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+}
+
+/* ========== UTILITY CLASSES ========== */
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Accessibility improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
 }
