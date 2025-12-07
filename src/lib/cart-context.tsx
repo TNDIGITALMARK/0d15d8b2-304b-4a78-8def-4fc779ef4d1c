@@ -19,11 +19,13 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-const DELIVERY_FEE = 500; // Flat delivery fee
+const DELIVERY_FEE = 99; // Flat delivery fee in INR
+const FREE_DELIVERY_THRESHOLD = 999; // Free delivery above ₹999
 
 function calculateCart(items: CartItem[]): Cart {
   const subtotal = items.reduce((sum, item) => sum + item.totalPrice, 0);
-  const deliveryFee = items.length > 0 ? DELIVERY_FEE : 0;
+  // Free delivery if subtotal is above threshold, otherwise charge delivery fee
+  const deliveryFee = items.length > 0 && subtotal < FREE_DELIVERY_THRESHOLD ? DELIVERY_FEE : 0;
   const total = subtotal + deliveryFee;
 
   return {
